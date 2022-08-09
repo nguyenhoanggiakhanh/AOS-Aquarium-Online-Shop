@@ -14,7 +14,7 @@
     <!-- Favicons Icon -->
     <link rel="icon" href="~/images/favicon.png" type="~/image/x-icon" />
     <link rel="shortcut icon" href="~/images/favicon.png" type="~/image/x-icon" />
-    <title>Emana Food</title>
+    <title>Aquarium Online Shop</title>
 
     <!-- Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 header-phone">
-                        <i class="fa fa-mobile"></i>  + 0800 567 345
+                        <i class="fa fa-mobile"></i>  +84 800 567 345
                     </div>
                     <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12 logo-block">
                         <!-- Header Logo -->
@@ -100,14 +100,12 @@
                         <li class="mega-menu">
                             <a class="level-top" href="/Users/ContactUs"><span>Contact Us</span></a>
                         </li>
-                        <li class="mega-menu">
-                            <a class="level-top" href="/Login"><span>Login</span></a>
-                        </li>
+                        
                         @{ var user = Context.Session.GetString("user");
                             if (user != null)
                             {
-                                <li class="mega-menu">
-                                    <a><span>Tài Khoản của tôi‎</span></a>
+                                <li class="mega-menu pointer">
+                                    <a><span>My Account‎</span></a>
                                     <div class="level0-wrapper dropdown-6col">
                                         <div class="container">
                                             <div class="level0-wrapper2">
@@ -115,17 +113,17 @@
                                                     <!--mega menu-->
                                                     <ul class="level0">
                                                         <li class="level3 nav-6-1 parent item">
-                                                            <a><span>Tài khoản</span></a>
+                                                            <a><span>Account</span></a>
                                                             <ul class="level1">
-                                                                <li class="level2 nav-6-1-1"> <a href="/Users/Edit"><span>Tài khoản của tôi</span></a> </li>
-                                                                <li class="level2 nav-6-1-1"> <a href="/OrderDetails/Wishlist"><span>Yêu thích</span></a> </li>
-                                                                <li class="level2 nav-6-1-1"><a href="/Login/Logout">Đăng xuất</a></li>
+                                                                <li class="level2 nav-6-1-1"> <a href="/Users/Edit"><span>Profile</span></a> </li>
+                                                                <li class="level2 nav-6-1-1"> <a href="/OrderDetails/Wishlist"><span>Wishlist</span></a> </li>
+                                                                <li class="level2 nav-6-1-1"><a href="/Login/Logout">Logout</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>
                                                     <!--level0-->
                                                 </div>
-                                                <!--nav-block nav-block-center-->
+                                                <!--nav-block nav-block-cen ter-->
                                             </div>
                                             <!--level0-wrapper2-->
                                         </div>
@@ -135,7 +133,12 @@
                                     <!--mega menu-->
                                 </li>
                             }
-                        }
+                            else { 
+                            <li class="mega-menu">
+                                 <a class="level-top" href="/Login"><span>Login</span></a>
+                            </li>
+                            }
+                         }
 
                     </ul>
                     <!--nav-->
@@ -185,8 +188,8 @@
 
                                             <!--actions-->
                                             <div class="actions">
-                                                <a asp-controller="AddOrder" asp-action="Indexcheckout" class="btn-checkout" title="Checkout" type="button"><span>Thanh toán</span> </a>
-                                                <a href="OrderDetails" class="view-cart"><span>Giỏ hàng</span></a>
+                                                <a asp-controller="AddOrder" asp-action="Indexcheckout" class="btn-checkout" title="Checkout" type="button"><span>Check out</span> </a>
+                                                <a href="OrderDetails" class="view-cart"><span>Cart</span></a>
                                             </div>
                                         </div>
                                     </div>

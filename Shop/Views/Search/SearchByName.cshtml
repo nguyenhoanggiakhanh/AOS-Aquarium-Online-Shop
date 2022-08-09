@@ -20,12 +20,12 @@
 
                                 <!-- Item -->
                                 <div class="item">
-                                    <img alt="" src="~/images/category-img1.jpg">
+                                    <img alt="" src="~/images/slide-img1.jpg">
                                 </div>
                                 <!-- End Item -->
                                 <!-- Item -->
                                 <div class="item">
-                                    <img alt="" src="~/images/category-img2.jpg">
+                                    <img alt="" src="~/images/slide-img4.jpg">
                                     <div class="cat-img-title cat-bg cat-box">
                                     </div>
                                     <!-- End Item -->
@@ -66,7 +66,7 @@
                                                 <a href="#" title="@item.ProductName" class="product-image"><img src="~/images/@arrListStr[0]" alt="Retis lapen casen"></a>
                                                 <div class="box-hover">
                                                     <ul class="add-to-links">
-                                                        <li><a asp-controller="AddOrder" asp-action="AddtoWishlist" asp-route-id="@item.Id" class="link-wishlist">Yêu thích</a> </li>
+                                                        <li><a asp-controller="AddOrder" asp-action="AddtoWishlist" asp-route-id="@item.Id" class="link-wishlist">Add to wishlist thích</a> </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                                         <div class="price-box"><span class="regular-price"><span class="price">@item.OutPrice</span> </span> </div>
                                                     </div>
                                                     <div class="action">
-                                                        <button class="button btn-cart" type="button" title="" data-original-title="Add to Cart"><span>Thêm vào giỏ hàng</span></button>
+                                                        <button class="button btn-cart" type="button" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -99,7 +99,7 @@
                             <div class="col-lg-6 col-sm-7 col-md-5">
                                 <div class="pager">
                                     <div class="pages">
-                                        <label>Trang:</label>
+                                        <label>Page:</label>
                                         <ul class="pagination">
                                             <li><a href="#">&laquo;</a></li>
                                             <li class="active"><a href="#">1</a></li>
@@ -123,7 +123,7 @@
             <div class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9">
                 <aside class="col-left sidebar">
                     <div class="side-nav-categories">
-                        <div class="block-title"> Danh mục </div>
+                        <div class="block-title"> Category </div>
                         <!--block-title-->
                         <!-- BEGIN BOX-CATEGORY -->
                         <div class="box-content box-category">
@@ -138,13 +138,13 @@
                         </div>
                         <!--box-content box-category-->
                     </div>
-                    <div class="hot-banner"><img alt="banner" src="./images/hot-trends-banner.jpg"></div>
+                    <div class="hot-banner"><img alt="banner" src="./images/slide-img3.jpg"></div>
                     <div class="block block-layered-nav">
-                        <div class="block-title">Lọc</div>
+                        <div class="block-title">Filter</div>
                         <div class="block-content">
                             <p class="block-subtitle"></p>
                             <dl id="narrow-by-list">
-                                <dt class="odd">Giá</dt>
+                                <dt class="odd">Price</dt>
                                 <dd class="odd">
                                     <ol>
                                         <div class="price-range-wrap">
@@ -158,13 +158,13 @@
                                                     <div class="price">
                                                         <input style="outline:hidden;border:none" readonly name="pricesearch" type="text" id="amount">
                                                     </div>
-                                                    <button type="submit" class="filter-btn">Lọc</button>
+                                                    <button type="submit" class="filter-btn">Filter</button>
                                                 </form>
                                             </div>
                                         </div>
                                     </ol>
                                 </dd>
-                                <dt class="even">Đơn Vị Tính : </dt>
+                                <dt class="even">Water Enviroment : </dt>
                                 <dd class="even">
                                     <ol>
                                         @foreach (Brand brand in Brand)
@@ -173,7 +173,7 @@
                                         }
                                     </ol>
                                 </dd>
-                                <dt class="odd">Nhà Cung Cấp</dt>
+                                <dt class="odd">Size of fish</dt>
                                 <dd class="odd">
                                     <ol>
                                         @foreach (Size size in Size)
@@ -182,7 +182,7 @@
                                         }
                                     </ol>
                                 </dd>
-                                <dt class="odd">Nước Cung Cấp</dt>
+                                <dt class="odd">Color of fish</dt>
                                 <dd class="odd">
                                     <ol>
                                         @foreach (Color color in Color)

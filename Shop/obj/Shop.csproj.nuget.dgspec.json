@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SU22\\Thesis\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj": {}
+    "D:\\SE2022 bờ lốc chen\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj": {}
   },
   "projects": {
-    "E:\\SU22\\Thesis\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj": {
+    "D:\\SE2022 bờ lốc chen\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SU22\\Thesis\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj",
+        "projectUniqueName": "D:\\SE2022 bờ lốc chen\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj",
         "projectName": "Shop",
-        "projectPath": "E:\\SU22\\Thesis\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj",
-        "packagesPath": "C:\\Users\\kdshi\\.nuget\\packages\\",
-        "outputPath": "E:\\SU22\\Thesis\\AOS-Aquarium-Online-Shop\\Shop\\obj\\",
+        "projectPath": "D:\\SE2022 bờ lốc chen\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj",
+        "packagesPath": "C:\\Users\\sktby\\.nuget\\packages\\",
+        "outputPath": "D:\\SE2022 bờ lốc chen\\AOS-Aquarium-Online-Shop\\Shop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kdshi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sktby\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,6 +83,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.17, 5.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -91,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     }

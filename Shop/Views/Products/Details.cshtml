@@ -39,11 +39,11 @@
                         <div class="price-box">
 
                             <p class=""> <span class="price-label">Giá:</span> <span class="price"> @Model.OutPrice </span> </p>
-                            <p class="availability in-stock pull-right"><span>Còn hàng</span></p>
+                            <p class="availability in-stock pull-right"><span>Available</span></p>
                         </div>
                     </div>
                     <div class="short-description">
-                        <h2>Mô tả sản phẩm</h2>
+                        <h2>Product Description</h2>
                         <p>@Model.ProductDescription</p>
                     </div>
                     <div class="add-to-box">
@@ -55,7 +55,7 @@
                                     <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
                                 </div>
                             </div>
-                            <a asp-controller="AddOrder" asp-action="AddtoCart" asp-route-id="@Model.Id" class="button btn-cart" title="Add to Cart" type="button">Thêm vào giỏ hàng</span></a>
+                            <a asp-controller="AddOrder" asp-action="AddtoCart" asp-route-id="@Model.Id" class="button btn-cart" title="Add to Cart" type="button">Add to cart</span></a>
                         </div>
                         <div class="email-addto-box">
                             <ul class="add-to-links">

@@ -218,13 +218,13 @@
                                 @switch (order.Status)
                                 {
                                     case 2:
-                <span>Chờ xác nhận</span> break;
+                <span>Wait for confirm</span> break;
             case 3:
-<span>Đã xác nhận</span> break;
+<span>Confirmed</span> break;
 case 4:
-<span>Đang giao hàng</span> break;
+<span>Shipping</span> break;
 case 5:
-<span>Đã giao hàng</span>break;
+<span>Shipped</span>break;
 }
                             </td>
                             @if (order.VoucherId == null)
@@ -243,7 +243,7 @@ case 5:
                 </div>
                 <div class="tab-pane fade" id="account-info" role="tabpanel">
                     <div class="myaccount-content">
-                        <h5>Thông tin chi tiết</h5>
+                        <h5>Detail</h5>
                         <div class="account-details-form">
                             <form asp-action="Edit">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -352,10 +352,10 @@ break;
                             <form asp-action="Updatepassword"
                                   asp-controller="Users" method="post">
                                 <fieldset>
-                                    <legend>Thay Đổi Mật Khẩu</legend>
+                                    <legend>Change password</legend>
                                     <div class="single-input-item">
                                         <label for="current-pwd" class="required">
-                                            Mật Khẩu Hiện Tại
+                                            Current password
                                         </label>
                                         <input name="current-password" type="password" id="current-pwd" placeholder="Current Password" />
                                     </div>
@@ -363,7 +363,7 @@ break;
                                         <div class="col-lg-6">
                                             <div class="single-input-item">
                                                 <label for="new-pwd" class="required">
-                                                    Mật Khẩu Mới
+                                                    New Password
                                                 </label>
                                                 <input name="newpassword" type="password" id="new-pwd" placeholder="New Password" />
                                             </div>
@@ -371,7 +371,7 @@ break;
                                         <div class="col-lg-6">
                                             <div class="single-input-item">
                                                 <label for="confirm-pwd" class="required">
-                                                    Xác Nhận Mật Khẩu
+                                                    Confirm password
                                                 </label>
                                                 <input name="confirm-pwd" type="password" id="confirm-pwd" placeholder="Confirm Password" />
                                             </div>
