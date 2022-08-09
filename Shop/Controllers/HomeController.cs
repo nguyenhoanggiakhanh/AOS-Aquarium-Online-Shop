@@ -21,8 +21,9 @@ namespace Shop.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> IndexAsync(string? sea)
         {
+            ViewBag.Page = "Home";
             var dataFashionContext = _context.Products.Include(p => p.ProductBrandNavigation).Include(p => p.ProductSizeNavigation).Include(p => p.ProductTypeNavigation).Where(x => x.Status == 1);
             int? checkOrderID = 0;
             var user = HttpContext.Session.GetString("user");
@@ -56,9 +57,31 @@ namespace Shop.Controllers
 
                 }
             }
-                return View(await dataFashionContext.ToListAsync());
+
+            if (sea != null)
+            {
+
+                ViewBag.Search = sea;
+                var l = dataFashionContext.Where(a => a.ProductName.Contains(sea));
+
+                if (l != null)
+                {
+
+                    dataFashionContext = l;
+
+                    ViewBag.Null = "notnull";
+                }
+
+
+            }
+            else
+            {
+                ViewBag.Null = "notnull";
+            }
+            return View(await dataFashionContext.ToListAsync());
 
         }
+
 
         public IActionResult Privacy()
         {

@@ -20,9 +20,10 @@ namespace Admin.Controllers
         }
 
         // GET: Products
-       
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(string? sea, string? sort)
         {
+            ViewBag.Page = "Products";
             var dataFashionContext = _context.Products.Include(p => p.ProductBrandNavigation).Include(p => p.ProductSizeNavigation).Include(p => p.ProductTypeNavigation).Where(x => x.Status == 1);
             ViewData["ProductBrand"] = _context.Brands;
             ViewData["ProductSize"] = _context.Sizes;
@@ -35,33 +36,61 @@ namespace Admin.Controllers
             if (user == null)
             {
                 ViewData["orderdeatail"] = null;
-             
+
             }
             else
             {
-              
+
                 try
                 {
                     var dataFashionContext1 = _context.Orders.Include(o => o.User).Include(o => o.Voucher);
-                     checkOrderID = dataFashionContext1.Where(s => s.UserId.Equals(Int32.Parse(user)) && s.Status.Equals(1)).FirstOrDefault()?.Id;
+                    checkOrderID = dataFashionContext1.Where(s => s.UserId.Equals(Int32.Parse(user)) && s.Status.Equals(1)).FirstOrDefault()?.Id;
                     if (checkOrderID == 0)
                     {
                         ViewData["orderdeatail"] = null;
-                        
+
                     }
                     else
                     {
                         ViewData["orderdeatail"] = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product).Where(s => s.OrderId == checkOrderID); ;
-                       
+
                     }
 
                 }
                 catch (Exception e)
                 {
                     ViewData["orderdeatail"] = null;
-                   
+
                 }
 
+            }
+            if (sort != null && sort.Equals("tangdan"))
+            {
+                dataFashionContext = dataFashionContext.OrderBy(a => a.OutPrice);
+            }
+            if (sort != null && sort.Equals("giamdan"))
+            {
+                dataFashionContext = dataFashionContext.OrderByDescending(a => a.OutPrice);
+            }
+            if (sea != null)
+            {
+
+                ViewBag.Search = sea;
+                var l = dataFashionContext.Where(a => a.ProductName.Contains(sea));
+
+                if (l != null)
+                {
+
+                    dataFashionContext = l;
+
+                    ViewBag.Null = "notnull";
+                }
+
+
+            }
+            else
+            {
+                ViewBag.Null = "notnull";
             }
             return View(await dataFashionContext.ToListAsync());
         }
@@ -81,7 +110,7 @@ namespace Admin.Controllers
                 return NotFound();
             }
 
-            var product =  _context.Products
+            var product = _context.Products
                 .Include(p => p.ProductBrandNavigation)
                 .Include(p => p.ProductSizeNavigation)
                 .Include(p => p.ProductTypeNavigation)
@@ -101,7 +130,7 @@ namespace Admin.Controllers
 
                 try
                 {
-                     int? checkOrderID = 0;
+                    int? checkOrderID = 0;
                     var dataFashionContext1 = _context.Orders.Include(o => o.User).Include(o => o.Voucher);
                     checkOrderID = dataFashionContext1.Where(s => s.UserId.Equals(Int32.Parse(user)) && s.Status.Equals(1)).FirstOrDefault()?.Id;
                     if (checkOrderID == 0)
@@ -176,7 +205,7 @@ namespace Admin.Controllers
         // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-      
+
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -208,10 +237,22 @@ namespace Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Sort(string? Search, string sort)
+        {
+            if (Search != null)
+            {
+                return RedirectToAction("Index", new { Sea = Search, sort = sort });
+            }
+            else
+            {
+                return RedirectToAction("Index", new { sort = sort });
+            }
+        }
+
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.Id == id);
         }
-       
-    } 
+
+    }
 }

@@ -266,12 +266,12 @@ a.button {
 	}
 /* 2-Add to cart button */
 .product-view .product-shop .add-to-box .btn-cart {
-	background: #59B210;
+	background: #4EBBF9;
 	color: #fff;
 }
 
 	.product-view .product-shop .add-to-box .btn-cart:hover {
-		background: #59B210;
+		background: #4EBBF9;
 		color: #fff;
 	}
 /* 3-Add to cart QTY */
@@ -519,7 +519,7 @@ header .header-top-links {
 	border: none;
 	letter-spacing: 0.5px;
 	font-weight: 300;
-	color: rgba(255,255,255,0.9);
+	color: #666;
 }
 
 .search-btn-bg {
@@ -4501,6 +4501,16 @@ figure.effect p {
 	border-bottom: 3px solid #e5e5e5;
 }
 
+	.block .block-items {
+		color: #000;
+		font-size: 14px;
+		font-weight: 500;
+		letter-spacing: 1px;
+		margin: 0;
+		padding: 15px;
+		text-transform: uppercase;
+		font-family: 'Rubik', sans-serif;
+	}
 	.block .block-title {
 		border-bottom: 1px solid #e5e5e5;
 		color: #000;
@@ -6585,6 +6595,7 @@ ol#compare-items li {
 		margin: 0px;
 		color: #222;
 		letter-spacing: 0.2px;
+		text-align: justify;
 	}
 
 .product-view .product-shop .add-to-box {
@@ -6818,7 +6829,7 @@ ol#compare-items li {
 		font-size: 11px;
 		line-height: 16px;
 		display: block;
-		background: #6dbe14;
+		background: #4EBBF9;
 		text-transform: uppercase;
 		padding: 5px 10px;
 		font-family: 'Rubik', sans-serif;
@@ -8065,7 +8076,7 @@ button.subscribe:before {
 footer {
 	padding: 0px 0 0;
 	color: #333;
-	background: #060606;
+	background: #000;
 	margin-top: 30px;
 	letter-spacing: normal;
 }
@@ -8226,7 +8237,7 @@ footer .coppyright {
 	width: 100%;
 	margin: auto;
 	padding: 18px 0;
-	background-color: #222;
+	background-color: #000;
 	font-family: 'Rubik', sans-serif;
 }
 
@@ -8847,7 +8858,7 @@ address {
 	padding: 25px 25px 22px 25px;
 	position: relative;
 	text-transform: uppercase;
-	background: #59B210;
+	background: #ddd;
 	border-bottom: 3px rgba(0,0,0,0.1) solid;
 }
 
@@ -14600,6 +14611,7 @@ header {
 	}
 
 	.our-features-box .feature-box, .our-features-box .col-lg-3 .feature-box.last {
+		font-weight: 
 		text-align: left;
 	}
 

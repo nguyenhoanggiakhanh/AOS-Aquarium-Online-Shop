@@ -10,13 +10,27 @@ using Shop.Models;
 
 namespace Shop.Controllers
 {
-    public class Search : Controller
+    public class SearchController : Controller
     {
         private readonly DataFashionContext _context;
 
-        public Search(DataFashionContext context)
+        public SearchController(DataFashionContext context)
         {
             _context = context;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string searchname, string? page)
+        {
+            if (page != null)
+            {
+                return RedirectToAction("Index", page, new { Sea = searchname });
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home", new { Sea = searchname });
+
+            }
         }
 
         public async Task<IActionResult> SearchByName(string? id)
@@ -58,7 +72,7 @@ namespace Shop.Controllers
             }
             if (id == null)
             {
-               
+
                 String search = "";
                 try
                 {

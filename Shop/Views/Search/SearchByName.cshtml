@@ -66,7 +66,7 @@
                                                 <a href="#" title="@item.ProductName" class="product-image"><img src="~/images/@arrListStr[0]" alt="Retis lapen casen"></a>
                                                 <div class="box-hover">
                                                     <ul class="add-to-links">
-                                                        <li><a asp-controller="AddOrder" asp-action="AddtoWishlist" asp-route-id="@item.Id" class="link-wishlist">Yêu thích</a> </li>
+                                                        <li><a asp-controller="AddOrder" asp-action="AddtoWishlist" asp-route-id="@item.Id" class="link-wishlist">Wishlist</a> </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -76,10 +76,10 @@
                                                 <div class="item-title"><a href="/Products/Details/@item.Id" title="Retis lapen casen">@item.ProductName</a> </div>
                                                 <div class="item-content"> 
                                                     <div class="item-price">
-                                                        <div class="price-box"><span class="regular-price"><span class="price">@item.OutPrice</span> </span> </div>
+                                                        <div class="price-box"><span class="regular-price"><span class="price">@item.OutPrice VND</span> </span> </div>
                                                     </div>
                                                     <div class="action">
-                                                        <button class="button btn-cart" type="button" title="" data-original-title="Add to Cart"><span>Thêm vào giỏ hàng</span></button>
+                                                        <button class="button btn-cart" type="button" title="" data-original-title="Add to Cart"><span>Add to Cart</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,53 +144,28 @@
                         <div class="block-content">
                             <p class="block-subtitle"></p>
                             <dl id="narrow-by-list">
-                                <dt class="odd">Giá</dt>
-                                <dd class="odd">
-                                    <ol>
-                                        <div class="price-range-wrap">
-                                            @{
-                                                double min = Convert.ToDouble(ViewData["min"]);
-                                                double max = Convert.ToDouble(ViewData["max"]);
-                                            }
-                                            <div class="price-range " data-min="@min" data-max="@max"></div>
-                                            <div class="range-slider">
-                                                <form asp-action="SearchByName" asp-controller="Search" class="d-flex align-items-center justify-content-between">
-                                                    <div class="price">
-                                                        <input style="outline:hidden;border:none" readonly name="pricesearch" type="text" id="amount">
-                                                    </div>
-                                                    <button type="submit" class="filter-btn">Lọc</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </ol>
-                                </dd>
-                                <dt class="even">Đơn Vị Tính : </dt>
-                                <dd class="even">
-                                    <ol>
-                                        @foreach (Brand brand in Brand)
+                                <div class="w3l-range">
+                                    <ul>
+                                        @if (@ViewBag.Search != null)
                                         {
-                                            <li><a href="/Search/SearchByName/@brand.Id brand">@brand.Tilte</a></li>
+                                            <li class="block-items">
+                                                <a asp-action="Sort" asp-route-Search=@ViewBag.Search asp-route-sort="tangdan">Low to high</a>
+                                            </li>
+                                            <li class="block-items">
+                                                <a asp-action="Sort" asp-route-Search=@ViewBag.Search asp-route-sort="giamdan">High to low</a>
+                                            </li>
                                         }
-                                    </ol>
-                                </dd>
-                                <dt class="odd">Nhà Cung Cấp</dt>
-                                <dd class="odd">
-                                    <ol>
-                                        @foreach (Size size in Size)
+                                        else
                                         {
-                                            <li><a href="/Search/SearchByName/@size.Id size">@size.Title</a></li>
+                                            <li class="block-items">
+                                                <a asp-action="Sort" asp-route-sort="tangdan">Low to high</a>
+                                            </li>
+                                            <li class="block-items">
+                                                <a asp-action="Sort" asp-route-sort="giamdan">High to low</a>
+                                            </li>
                                         }
-                                    </ol>
-                                </dd>
-                                <dt class="odd">Nước Cung Cấp</dt>
-                                <dd class="odd">
-                                    <ol>
-                                        @foreach (Color color in Color)
-                                        {
-                                            <li><a href="/Search/SearchByName/@color.Id color">@color.Title</a></li>
-                                        }
-                                    </ol>
-                                </dd>
+                                    </ul>
+                                </div>
                             </dl>
                         </div>
                     </div>
