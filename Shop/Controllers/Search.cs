@@ -22,15 +22,8 @@ namespace Shop.Controllers
         [HttpPost]
         public async Task<IActionResult> Search(string searchname, string? page)
         {
-            if (page != null)
-            {
-                return RedirectToAction("Index", page, new { Sea = searchname });
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home", new { Sea = searchname });
 
-            }
+                return RedirectToAction("Index", "Products", new { Sea = searchname });
         }
 
         public async Task<IActionResult> SearchByName(string? id)
