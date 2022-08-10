@@ -17,13 +17,13 @@
                             foreach (User user in DetailUser)
                             {
                                 <div class="checkout-billing-details-wrap">
-                                    <h4 class="checkout-title">Chi tiết hóa đơn</h4>
+                                    <h4 class="checkout-title">Order Detail</h4>
                                     <div class="billing-form-wrap">
 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="single-input-item">
-                                                    <label for="f_name" class="required">Tên</label>
+                                                    <label for="f_name" class="required">Name</label>
                                                     <input readonly type="text" id="f_name" required value="@user.Fullname" />
                                                 </div>
                                             </div>
@@ -34,16 +34,16 @@
                                             <input readonly type="email" id="email" required value="@user.Email" />
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="state">Địa chỉ</label>
+                                            <label for="state">Address</label>
                                             <input readonly type="text" id="state" value="@user.Address" />
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="phone">Số điện thoại</label>
+                                            <label for="phone">Phone</label>
                                             <input readonly type="text" id="phone" value="@user.Phone" />
                                         </div>
                                         <div class="single-input-item">
-                                            <label for="ordernote">Ghi chú</label>
-                                            <textarea name="ordernote" id="ordernote" cols="30" rows="3" placeholder="Ghi chú"></textarea>
+                                            <label for="ordernote">Note</label>
+                                            <textarea name="ordernote" id="ordernote" cols="30" rows="3" placeholder="Note"></textarea>
                                         </div>
 
                                     </div>
@@ -56,7 +56,7 @@
                     <!-- Order Summary Details -->
                     <div class="col-lg-6">
                         <div class="order-summary-details">
-                            <h4 class="checkout-title">Hóa đơn của bạn</h4>
+                            <h4 class="checkout-title">Your order</h4>
                             <div class="order-summary-content">
                                 <!-- Order Summary Table -->
                                 <div class="order-summary-table table-responsive text-center">
@@ -66,8 +66,8 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Sản phẩm</th>
-                                                <th>Tổng</th>
+                                                <th>Product</th>
+                                                <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -124,19 +124,19 @@
                                             }
                                             <tr>
 
-                                                <td>Mã giảm giá</td>
+                                                <td>Voucher</td>
                                                 <td><strong>$@vouchercode</strong></td>
                                             </tr>
                                             <tr>
                                                 @{ var subtotal = total * sale / 100; }
-                                                <td>Giảm</td>
+                                                <td>Discount</td>
                                                 <td><strong>$@subtotal</strong></td>
                                             </tr>
                                             <tr>
                                                 @{
                                                     double finaltotal = total - subtotal;
                                                 }
-                                                <td>Tổng tiền</td>
+                                                <td>Total price</td>
                                                 <td><strong>$@total_temp.ToString("0.##")</strong></td>
                                             </tr>
                                         </tfoot>
@@ -146,8 +146,8 @@
                                 </div>
                                 <!-- Order Payment Method -->
                                 <div class="order-payment-method">
-                                    <button type="submit" class="btn btn-sqr">Thanh toán</button>
-                                    <a href="Payment" class="btn btn-sqr">Thanh toán bằng MOMO</a>
+                                    <button type="submit" class="btn btn-sqr">Confirm payment</button>
+                                    <a href="Payment" class="btn btn-sqr">Payment with MOMO</a>
                                 </div>
                             </div>
                         </div>
