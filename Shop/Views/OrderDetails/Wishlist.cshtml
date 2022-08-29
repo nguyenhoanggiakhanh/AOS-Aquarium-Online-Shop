@@ -16,12 +16,12 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="pro-thumbnail">Ảnh</th>
-                                        <th class="pro-title">Tên sản phẩm</th>
-                                        <th class="pro-price">Giá</th>
-                                        <th class="pro-quantity">Trạng thái</th>
-                                        <th class="pro-subtotal">Thêm vào giỏ hàng</th>
-                                        <th class="pro-remove">Xóa</th>
+                                        <th class="pro-thumbnail">Product Image</th>
+                                        <th class="pro-title">Product name</th>
+                                        <th class="pro-price">Price</th>
+                                        <th class="pro-quantity">Status</th>
+                                        <th class="pro-subtotal">Add to cart</th>
+                                        <th class="pro-remove">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -37,16 +37,16 @@
                                         {
 
 
-                                            <td class="pro-quantity"><span class="text-success">Còn hàng</span></td>
+                                            <td class="pro-quantity"><span class="text-success">Available</span></td>
                                         }
                                         else
                                         {
-                                            <td class="pro-quantity"><span class="text-success">Hết hàng</span></td>
+                                            <td class="pro-quantity"><span class="text-success">Unavailable</span></td>
                                         }
 
                                         <td class="pro-subtotal">
                                             <a asp-controller="AddOrder" asp-action="AddtoCart" asp-route-id="@item.ProductId" class="btn btn-sqr">
-                                                Thêm vào giỏ hàng
+                                                Add to cart
                                             </a>
                                         </td>
                                         <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
