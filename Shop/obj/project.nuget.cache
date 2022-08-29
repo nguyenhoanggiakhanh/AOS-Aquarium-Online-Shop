@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YZWKqgShd4hj6Pzb95xHw9gOl+yGIAP96Dux0QLffNxDz0Q8e4HSMgITJn+MWVLlCsNZbRm48GqWqR90QP/59g==",
+  "dgSpecHash": "Rl3YffFP+1O4taLxu/656yeS5/9p82lociIaFt/MyXBYRiSiPwWW4NVNCq/z6ZtBYd64N1sFkdO0PSn9DHAx7A==",
   "success": true,
-  "projectFilePath": "E:\\SU22\\Thesis\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj",
+  "projectFilePath": "E:\\SU22\\Thesis\\AOS-Aquarium-Online-Shop\\AOS-Aquarium-Online-Shop\\Shop\\Shop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kdshi\\.nuget\\packages\\closedxml\\0.95.4\\closedxml.0.95.4.nupkg.sha512",
     "C:\\Users\\kdshi\\.nuget\\packages\\documentformat.openxml\\2.7.2\\documentformat.openxml.2.7.2.nupkg.sha512",
