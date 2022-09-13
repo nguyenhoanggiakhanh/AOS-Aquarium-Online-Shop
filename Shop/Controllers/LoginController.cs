@@ -7,6 +7,10 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Text;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace AdminWeb.Controllers
 {
@@ -52,7 +56,29 @@ namespace AdminWeb.Controllers
             String btnLogin = HttpContext.Request.Form["login"];
             if(btnLogin != null)
             {
+                //if(email == null)
+                //{
+                //    TempData["AlertType"] = "alert-warning";
+                //    TempData["AlertMessage"] = "Email can't be empty! Please enter again!";
+                //    return Redirect("/Login");
+
+                //}
+                //if (IsValidEmail(email) == false)
+                //{
+                //    TempData["AlertType"] = "alert-warning";
+                //    TempData["AlertMessage"] = "Email format is invalid! Please enter again!";
+                //    return Redirect("/Login");
+                //}
+                //if (Pass == null)
+                //{
+                //    TempData["AlertType"] = "alert-warning";
+                //    TempData["AlertMessage"] = "Password can't be empty! Please enter again";
+                //    return Redirect("/Login");
+                //}
                 var dataFashionContext = _context.Users.Include(u => u.Role);
+                Console.WriteLine("Pass before get:" + Pass);
+                Pass = GetMD5(Pass);
+                Console.WriteLine("Pass after get:" + Pass);
                 var data = dataFashionContext.Where(s => s.Email.Equals(email) && s.Password.Equals(Pass) && s.Status == 1 && s.RoleId.Equals("Customer")).ToList();
                 if(data.Count > 0)
                 {
@@ -64,16 +90,6 @@ namespace AdminWeb.Controllers
                 }
                 else
                 {
-                  
-                    var dataAdmin = dataFashionContext.Where(s => s.Email.Equals(email) && s.Password.Equals(Pass) && s.Status == 1 && s.RoleId != "Customer").ToList();
-                    if (dataAdmin.Count > 0)
-                    {
-                        HttpContext.Session.SetString("user", dataAdmin.FirstOrDefault().Id.ToString());
-                        HttpContext.Session.SetString("role", dataAdmin.FirstOrDefault().RoleId.ToString());
-                        Message = dataAdmin.FirstOrDefault().Fullname;
-                        ViewBag.Message = "Success";
-                        return Redirect("/HomeAdmin");
-                    }
                     TempData["AlertType"] = "alert-warning";
                     TempData["AlertMessage"] = "Wrong pass or Email";
                     return Redirect("/Login");
@@ -180,6 +196,66 @@ namespace AdminWeb.Controllers
             }
           
         }
-          
+        //create a string MD5
+        public static string GetMD5(string str)
+        {
+            Console.WriteLine("Before encode:" + str);
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = Encoding.UTF8.GetBytes(str);
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x2");
+
+            }
+            Console.WriteLine("After encode:" + byte2String);
+
+            return byte2String;
+        }
+        //public static bool IsValidEmail(string email)
+        //{
+        //    if (string.IsNullOrWhiteSpace(email))
+        //        return false;
+
+        //    try
+        //    {
+        //        // Normalize the domain
+        //        email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
+        //                              RegexOptions.None, TimeSpan.FromMilliseconds(200));
+
+        //        // Examines the domain part of the email and normalizes it.
+        //        string DomainMapper(Match match)
+        //        {
+        //            // Use IdnMapping class to convert Unicode domain names.
+        //            var idn = new IdnMapping();
+
+        //            // Pull out and process domain name (throws ArgumentException on invalid)
+        //            string domainName = idn.GetAscii(match.Groups[2].Value);
+
+        //            return match.Groups[1].Value + domainName;
+        //        }
+        //    }
+        //    catch (RegexMatchTimeoutException e)
+        //    {
+        //        return false;
+        //    }
+        //    catch (ArgumentException e)
+        //    {
+        //        return false;
+        //    }
+
+        //    try
+        //    {
+        //        return Regex.IsMatch(email,
+        //            @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+        //            RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+        //    }
+        //    catch (RegexMatchTimeoutException)    
+        //    {
+        //        return false;
+        //    }
+        }
     }
 }
